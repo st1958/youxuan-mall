@@ -1,0 +1,152 @@
+/* ==========================================================
+   优选商城 · 商品详情页样式 detail.css
+   姓名：蓝姹姹　学号：20251091083
+   左图右信息的双栏布局，下方参数与评价用选项卡切换
+   ========================================================== */
+
+/* ---------- 主区：左图右购买信息 ---------- */
+.detail-top{
+  display:grid;grid-template-columns:460px 1fr;gap:28px;align-items:start;
+  padding:20px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+}
+
+/* 左侧图片 */
+.view{min-width:0}
+.view-main{
+  position:relative;width:100%;aspect-ratio:1/1;padding:22px;
+  border:1px solid var(--line);border-radius:8px;background:#fff;
+}
+.view-main img{width:100%;height:100%;object-fit:contain;display:block}
+.view-main .noimg{
+  display:flex;align-items:center;justify-content:center;width:100%;height:100%;
+  border-radius:6px;color:#fff;font-size:20px;letter-spacing:3px;
+  background:linear-gradient(135deg,#FFB27A,#FF7A45 55%,#E64500);
+}
+.view-thumbs{display:flex;gap:10px;margin-top:12px}
+.view-thumbs span{
+  width:64px;height:64px;padding:6px;border:1px solid var(--line);border-radius:6px;
+  background:#fff;cursor:pointer;transition:border-color .2s;
+}
+.view-thumbs span.on,.view-thumbs span:hover{border-color:var(--brand)}
+.view-thumbs img{width:100%;height:100%;object-fit:contain}
+
+/* 右侧信息 */
+.buy{min-width:0}
+.buy-name{font-size:22px;line-height:1.45;font-weight:600;color:var(--ink)}
+.buy-sub{margin-top:8px;font-size:13px;color:var(--muted)}
+
+.price-box{
+  margin-top:16px;padding:16px 18px;border-radius:8px;
+  background:linear-gradient(100deg,#FFF6F1,#FFF1E8);
+}
+.price-now{display:flex;align-items:baseline;gap:10px;font-size:16px;color:var(--brand)}
+.price-now em{font-style:normal;font-size:34px;font-weight:700;letter-spacing:.5px}
+.price-off{
+  padding:2px 8px;border-radius:3px;background:var(--brand);color:#fff;
+  font-size:11px;font-style:normal;
+}
+.price-old{margin-top:8px;font-size:12px;color:var(--muted)}
+.price-old del{color:#B0B0B0}
+.price-tip{margin-left:6px;color:#C2754A}
+
+.buy-promise{display:flex;gap:18px;margin-top:14px;font-size:12px;color:var(--ink-2)}
+.buy-promise span{position:relative;padding-left:14px}
+.buy-promise span::before{
+  content:"";position:absolute;left:0;top:4px;width:6px;height:6px;
+  border-radius:50%;background:var(--brand);
+}
+
+/* 规格与数量 */
+.opt-row{display:flex;align-items:center;gap:14px;margin-top:18px}
+.opt-label{flex:none;width:42px;font-size:13px;color:var(--muted)}
+.opt-list{display:flex;flex-wrap:wrap;gap:10px}
+.opt-list button{
+  height:34px;padding:0 16px;border:1px solid var(--line-2);border-radius:4px;
+  font-size:13px;color:var(--ink-2);background:#fff;transition:.2s;
+}
+.opt-list button:hover{border-color:var(--brand);color:var(--brand)}
+.opt-list button.on{border-color:var(--brand);background:#FFF3EC;color:var(--brand);font-weight:600}
+.stock{font-size:12px;color:#2E8B57}
+
+.qty{display:flex;align-items:center;width:132px}
+.qty-minus,.qty-plus{
+  width:36px;height:36px;flex:none;border:1px solid var(--line-2);background:#fff;
+  font-size:16px;color:var(--ink-2);transition:.2s;
+}
+.qty-minus{border-radius:4px 0 0 4px}
+.qty-plus{border-radius:0 4px 4px 0}
+.qty-minus:hover,.qty-plus:hover{border-color:var(--brand);color:var(--brand)}
+.qty-minus:disabled,.qty-plus:disabled{color:#CCC;border-color:var(--line);background:#FAFAFA;cursor:not-allowed}
+.qty input{
+  width:60px;height:36px;flex:none;margin:0 -1px;text-align:center;
+  border:1px solid var(--line-2);outline:none;background:#fff;
+}
+.qty input:focus{border-color:var(--brand)}
+
+.buy-btns{display:flex;gap:14px;margin-top:24px}
+.buy-btns .btn-brand,.buy-btns .btn-outline{width:170px}
+.buy-note{margin-top:14px;font-size:12px;color:var(--muted)}
+
+/* ---------- 下方选项卡 ---------- */
+.detail-bot{
+  margin-top:20px;padding:6px 20px 22px;
+  background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+}
+.tabs{display:flex;align-items:center;gap:26px;height:52px;border-bottom:1px solid var(--line)}
+.tabs button{
+  position:relative;height:52px;font-size:15px;color:var(--ink-2);transition:color .2s;
+}
+.tabs button:hover{color:var(--brand)}
+.tabs button.on{color:var(--brand);font-weight:600}
+.tabs button.on::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--brand);
+}
+
+.tab-panel{padding-top:18px}
+.param-table{width:100%;border-collapse:collapse;font-size:13px}
+.param-table th,.param-table td{
+  padding:11px 14px;border:1px solid var(--line);text-align:left;vertical-align:top;
+}
+.param-table th{width:140px;background:#FAFAFA;color:var(--muted);font-weight:400}
+.param-table td{color:var(--ink-2)}
+
+.review-list{display:grid;gap:12px}
+.review-item{
+  display:grid;grid-template-columns:96px 74px 1fr;gap:12px;align-items:start;
+  padding:14px 16px;border-radius:8px;background:#FAFAFA;
+}
+.review-user{font-size:13px;color:var(--ink-2)}
+.review-star{color:var(--brand);font-size:13px;letter-spacing:1px}
+.review-text{font-size:13px;color:var(--ink-2);line-height:1.7}
+
+/* ---------- 三端响应式 ---------- */
+@media (max-width:1199px){
+  .detail-top{grid-template-columns:360px 1fr;gap:22px;padding:18px}
+  .price-now em{font-size:29px}
+  .buy-name{font-size:20px}
+  .buy-btns .btn-brand,.buy-btns .btn-outline{width:150px}
+}
+
+@media (max-width:767px){
+  .detail-top{grid-template-columns:1fr;gap:16px;padding:14px}
+  .view-main{padding:14px}
+  .view-thumbs span{width:52px;height:52px}
+  .buy-name{font-size:17px}
+  .buy-sub{font-size:12px}
+  .price-box{padding:12px 14px}
+  .price-now em{font-size:26px}
+  .buy-promise{gap:12px;font-size:11px}
+  .opt-row{gap:10px;margin-top:14px}
+  .opt-label{width:36px;font-size:12px}
+  .opt-list button{height:30px;padding:0 12px;font-size:12px}
+  .opt-list{gap:8px}
+  .buy-btns{gap:10px;margin-top:18px}
+  .buy-btns .btn-brand,.buy-btns .btn-outline{width:auto;flex:1;height:44px;padding:0 12px}
+  .detail-bot{padding:4px 14px 18px}
+  .tabs{gap:18px;height:46px}
+  .tabs button{height:46px;font-size:14px}
+  .param-table th{width:92px;padding:9px 10px}
+  .param-table td{padding:9px 10px}
+  .review-item{grid-template-columns:1fr auto;gap:6px}
+  .review-text{grid-column:1 / -1}
+}

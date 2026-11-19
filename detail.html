@@ -1,0 +1,184 @@
+<!--
+  优选商城 · 商品详情页 detail.html
+  姓名：蓝姹姹　学号：20251091083
+  本页内容：商品图文展示、价格与规格选择、商品参数、用户评价、加入购物车
+  地址栏带 id 参数，例如 detail.html?id=p1，默认显示第一款商品
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>商品详情 - 优选商城</title>
+  <link rel="icon" href="图片素材/favicon.png">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+
+  <!-- ========== 顶部通栏 ========== -->
+  <div class="topbar">
+    <div class="wrap topbar-in">
+      <span class="tb-welcome">您好，欢迎来到优选商城</span>
+      <nav class="tb-links">
+        <a href="login.html">登录</a>
+        <a href="login.html" class="tb-reg">免费注册</a>
+        <a href="#">我的订单</a>
+        <a href="cart.html">我的购物车<i class="tb-num" data-cart-num>0</i></a>
+        <a href="#">客户服务</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== 主导航 ========== -->
+  <header class="header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html">优选<em>商城</em></a>
+      <div class="search">
+        <input type="text" placeholder="搜索 手机 / 耳机 / 空气炸锅" aria-label="搜索商品">
+        <button type="button">搜索</button>
+      </div>
+      <a class="cart-entry" href="cart.html">
+        <i class="ci" aria-hidden="true"></i>
+        购物车<i class="cart-num" data-cart-num>0</i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== 分类导航 ========== -->
+  <nav class="catnav">
+    <div class="wrap catnav-in">
+      <a href="index.html">首页</a>
+      <a href="category.html?cat=digital">手机数码</a>
+      <a href="category.html?cat=home">家用电器</a>
+      <a href="category.html?cat=clothes">服饰鞋包</a>
+      <a href="category.html?cat=food">食品生鲜</a>
+      <a href="cart.html">购物车</a>
+    </div>
+  </nav>
+
+  <!-- ========== 正文 ========== -->
+  <main class="wrap page">
+
+    <p class="crumb">
+      <a href="index.html">首页</a><i>›</i>
+      <a href="category.html" id="crumbCat">全部商品</a><i>›</i>
+      <span id="crumbName">商品详情</span>
+    </p>
+
+    <!-- ---------- 商品主区 ---------- -->
+    <section class="detail-top" aria-label="商品信息">
+
+      <!-- 左：大图 -->
+      <div class="view">
+        <div class="view-main" id="viewMain">
+          <img id="mainImg" src="图片素材/p01.jpg" alt="商品主图">
+        </div>
+      </div>
+
+      <!-- 右：价格与购买 -->
+      <div class="buy">
+        <h1 class="buy-name" id="goodsName">商品名称</h1>
+        <p class="buy-sub" id="goodsSub">商品副标题</p>
+
+        <div class="price-box">
+          <div class="price-now">¥<em id="priceNow">0</em><span class="price-off" id="priceOff">省 0 元</span></div>
+          <p class="price-old">原价 <del id="priceOld">¥0</del>　<span class="price-tip">满 199 减 20，满 499 减 50</span></p>
+        </div>
+
+        <div class="buy-promise">
+          <span>正品保障</span><span>顺丰包邮</span><span>7 天无理由</span>
+        </div>
+
+        <div class="opt-row">
+          <label class="opt-label">规格</label>
+          <div class="opt-list" id="specList">
+            <button type="button" class="on" data-spec="标准版">标准版</button>
+            <button type="button" data-spec="升级版">升级版</button>
+            <button type="button" data-spec="礼盒装">礼盒装</button>
+          </div>
+        </div>
+
+        <div class="opt-row">
+          <label class="opt-label">数量</label>
+          <div class="qty">
+            <button type="button" class="qty-minus" id="minusBtn" aria-label="减少数量">－</button>
+            <input type="text" id="qtyInput" value="1" inputmode="numeric" aria-label="购买数量">
+            <button type="button" class="qty-plus" id="plusBtn" aria-label="增加数量">＋</button>
+          </div>
+          <span class="stock">库存充足</span>
+        </div>
+
+        <div class="buy-btns">
+          <button type="button" class="btn-outline" id="addBtn">加入购物车</button>
+          <button type="button" class="btn-brand" id="buyBtn">立即购买</button>
+        </div>
+
+        <p class="buy-note">下单后 48 小时内发货，校园地址可选择送到驿站。</p>
+      </div>
+
+    </section>
+
+    <!-- ---------- 参数与评价 ---------- -->
+    <section class="detail-bot" aria-label="商品参数与评价">
+
+      <div class="tabs" id="tabs">
+        <button type="button" class="on" data-tab="param">商品参数</button>
+        <button type="button" data-tab="review">用户评价</button>
+        <span class="tabs-line"></span>
+      </div>
+
+      <div class="tab-panel" id="panelParam">
+        <table class="param-table" id="paramTable"></table>
+      </div>
+
+      <div class="tab-panel" id="panelReview" hidden>
+        <div class="review-list" id="reviewList"></div>
+      </div>
+
+    </section>
+
+    <!-- ---------- 同类推荐 ---------- -->
+    <section class="sec" aria-label="同类推荐">
+      <div class="sec-head">
+        <h2 class="sec-title">同类推荐<small>买过的人也在看</small></h2>
+        <a class="sec-more" href="category.html" id="moreLink">更多商品 ›</a>
+      </div>
+      <div class="goods-grid" id="likeGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- ========== 公共页脚 ========== -->
+  <footer class="footer">
+    <div class="wrap foot-cols">
+      <div class="foot-col">
+        <h4>购物指南</h4>
+        <a href="#">购物流程</a><a href="#">会员介绍</a><a href="#">常见问题</a>
+      </div>
+      <div class="foot-col">
+        <h4>配送方式</h4>
+        <a href="#">上门自提</a><a href="#">配送范围</a><a href="#">运费说明</a>
+      </div>
+      <div class="foot-col">
+        <h4>售后服务</h4>
+        <a href="#">退换货政策</a><a href="#">退款说明</a><a href="#">取消订单</a>
+      </div>
+      <div class="foot-col foot-service">
+        <h4>客户服务</h4>
+        <p class="tel">400-000-0000</p>
+        <p>周一至周日 9:00-22:00</p>
+        <p>在线客服 · 邮件反馈</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="wrap">优选商城 · 前端设计开发课程作业　｜　设计：蓝姹姹　｜　仅供学习演示</div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+  <script src="index.js"></script>
+  <script src="detail.js"></script>
+</body>
+</html>

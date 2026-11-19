@@ -1,0 +1,133 @@
+<!--
+  优选商城 · 登录注册页 login.html
+  姓名：陈伊静　学号：20251091078
+  本页内容：精简版导航、登录与注册表单切换、表单校验、移动端居中布局
+  公共样式在 index.css，本页样式在 login.css，脚本为 login.js
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登录注册 - 优选商城</title>
+  <link rel="icon" href="图片素材/favicon.png">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <!-- ========== 顶部通栏（保留通用条） ========== -->
+  <div class="topbar">
+    <div class="wrap topbar-in">
+      <span class="tb-welcome">您好，欢迎来到优选商城</span>
+      <nav class="tb-links">
+        <a href="login.html" class="on">登录</a>
+        <a href="login.html" class="tb-reg">免费注册</a>
+        <a href="cart.html">我的购物车<i class="tb-num" data-cart-num>0</i></a>
+        <a href="index.html">回到首页</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== 精简导航（登录页不放搜索框与分类栏） ========== -->
+  <header class="lite-header">
+    <div class="wrap lite-in">
+      <a class="logo" href="index.html">优选<em>商城</em></a>
+      <p class="lite-tip">登录后可同步购物车、查看订单</p>
+      <a class="lite-back" href="index.html">‹ 继续逛商城</a>
+    </div>
+  </header>
+
+  <!-- ========== 正文 ========== -->
+  <main class="wrap login-page">
+
+    <!-- 左侧品牌区（手机上隐藏） -->
+    <section class="login-hero" aria-label="商城介绍">
+      <p class="hero-kicker">YOUXUAN MALL</p>
+      <h1 class="hero-title">好物次日达<br>一站买齐</h1>
+      <p class="hero-desc">数码、家电、鞋服、零食，四类好物都在这里。注册即可领取新人券包。</p>
+      <ul class="hero-list">
+        <li><b>正</b>正品保障，假一赔十</li>
+        <li><b>快</b>当日下单，次日送达</li>
+        <li><b>省</b>满 199 减 20，新人再减 10</li>
+      </ul>
+    </section>
+
+    <!-- 右侧表单卡片 -->
+    <section class="login-panel" aria-label="登录注册">
+
+      <div class="tabs" role="tablist">
+        <button class="tab on" type="button" id="tabLogin" role="tab" aria-selected="true">登录</button>
+        <button class="tab" type="button" id="tabReg" role="tab" aria-selected="false">注册</button>
+      </div>
+
+      <!-- ---------- 登录表单 ---------- -->
+      <form class="form" id="loginForm" novalidate>
+        <p class="form-tip">还没有账号？<a href="#reg" data-to-reg>免费注册</a></p>
+
+        <label class="field">
+          <span class="lb">手机号</span>
+          <input type="tel" id="loginPhone" maxlength="11" placeholder="请输入 11 位手机号" autocomplete="tel">
+        </label>
+
+        <label class="field">
+          <span class="lb">密码</span>
+          <span class="pwd">
+            <input type="password" id="loginPwd" maxlength="16" placeholder="请输入密码">
+            <button class="eye" type="button" data-eye="loginPwd" aria-label="显示密码">显示</button>
+          </span>
+        </label>
+
+        <label class="remember">
+          <input type="checkbox" id="remember" checked>
+          <span>记住我的手机号</span>
+          <a class="forget" href="#">忘记密码？</a>
+        </label>
+
+        <button class="submit" type="submit">登 录</button>
+
+        <p class="agree">登录即表示同意《用户协议》与《隐私政策》</p>
+      </form>
+
+      <!-- ---------- 注册表单 ---------- -->
+      <form class="form hide" id="regForm" novalidate>
+        <p class="form-tip">已有账号？<a href="#login" data-to-login>直接登录</a></p>
+
+        <label class="field">
+          <span class="lb">昵称</span>
+          <input type="text" id="regName" maxlength="12" placeholder="2-12 个字，例如 宏宇">
+        </label>
+
+        <label class="field">
+          <span class="lb">手机号</span>
+          <input type="tel" id="regPhone" maxlength="11" placeholder="请输入 11 位手机号">
+        </label>
+
+        <label class="field">
+          <span class="lb">密码</span>
+          <span class="pwd">
+            <input type="password" id="regPwd" maxlength="16" placeholder="6-16 位，建议字母加数字">
+            <button class="eye" type="button" data-eye="regPwd" aria-label="显示密码">显示</button>
+          </span>
+        </label>
+
+        <label class="field">
+          <span class="lb">确认密码</span>
+          <input type="password" id="regPwd2" maxlength="16" placeholder="再输入一次密码">
+        </label>
+
+        <button class="submit" type="submit">注 册</button>
+      </form>
+
+    </section>
+  </main>
+
+  <!-- ========== 精简页脚 ========== -->
+  <footer class="lite-footer">
+    <div class="wrap">优选商城 · 前端设计开发课程作业　｜　设计：陈伊静　｜　仅供学习演示</div>
+  </footer>
+
+  <script src="index.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

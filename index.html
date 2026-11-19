@@ -1,0 +1,193 @@
+<!--
+  优选商城 · 首页 index.html
+  姓名：吴渝　学号：20251091098
+  本页内容：轮播 Banner、服务承诺条、商品推荐区、楼层区
+  公共头部与页脚复用 index.css 里的样式，本页脚本为 index.js
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>优选商城 - 正品好物，一站购齐</title>
+  <link rel="icon" href="图片素材/favicon.png">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- ========== 顶部通栏 ========== -->
+  <div class="topbar">
+    <div class="wrap topbar-in">
+      <span class="tb-welcome">您好，欢迎来到优选商城</span>
+      <nav class="tb-links">
+        <a href="login.html">登录</a>
+        <a href="login.html" class="tb-reg">免费注册</a>
+        <a href="#">我的订单</a>
+        <a href="cart.html">我的购物车<i class="tb-num" data-cart-num>0</i></a>
+        <a href="#">客户服务</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== 主导航 ========== -->
+  <header class="header">
+    <div class="wrap header-in">
+      <a class="logo" href="index.html">优选<em>商城</em></a>
+      <div class="search">
+        <input type="text" placeholder="搜索 手机 / 耳机 / 空气炸锅" aria-label="搜索商品">
+        <button type="button">搜索</button>
+      </div>
+      <a class="cart-entry" href="cart.html">
+        <i class="ci" aria-hidden="true"></i>
+        购物车<i class="cart-num" data-cart-num>0</i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== 分类导航 ========== -->
+  <nav class="catnav">
+    <div class="wrap catnav-in">
+      <a href="index.html" class="on">首页</a>
+      <a href="category.html?cat=digital">手机数码</a>
+      <a href="category.html?cat=home">家用电器</a>
+      <a href="category.html?cat=clothes">服饰鞋包</a>
+      <a href="category.html?cat=food">食品生鲜</a>
+      <a href="cart.html">购物车</a>
+    </div>
+  </nav>
+
+  <!-- ========== 正文 ========== -->
+  <main class="wrap page">
+
+    <!-- ---------- 轮播 Banner ---------- -->
+    <section class="banner" aria-label="促销轮播">
+      <div class="slides">
+
+        <a class="slide s1 active" href="detail.html?id=p1">
+          <div class="slide-txt">
+            <p class="slide-kicker">数码新品</p>
+            <h2>一戴就静<br>降噪耳机 199 元起</h2>
+            <p class="slide-desc">半入耳 · 蓝牙 6.0 · 约 50 小时续航</p>
+            <span class="slide-btn">去看看</span>
+          </div>
+          <div class="slide-pic">
+            <img src="图片素材/p01.jpg" alt="无线降噪蓝牙耳机">
+          </div>
+        </a>
+
+        <a class="slide s2" href="detail.html?id=p7">
+          <div class="slide-txt">
+            <p class="slide-kicker">厨房焕新</p>
+            <h2>一锅两菜<br>12L 空气炸锅</h2>
+            <p class="slide-desc">可视窗口 · 免翻面 · 12 种预设菜单</p>
+            <span class="slide-btn">去看看</span>
+          </div>
+          <div class="slide-pic">
+            <img src="图片素材/p07.jpg" alt="空气炸锅">
+          </div>
+        </a>
+
+        <a class="slide s3" href="detail.html?id=p9">
+          <div class="slide-txt">
+            <p class="slide-kicker">跑步季</p>
+            <h2>轻一点，快一点<br>碳板跑鞋 299 元</h2>
+            <p class="slide-desc">网面透气 · 爆米花中底 · 体测慢跑都能穿</p>
+            <span class="slide-btn">去看看</span>
+          </div>
+          <div class="slide-pic">
+            <img src="图片素材/p09.jpg" alt="碳板跑鞋">
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 左右箭头与圆点 -->
+      <button class="bn-arrow bn-prev" type="button" aria-label="上一张">‹</button>
+      <button class="bn-arrow bn-next" type="button" aria-label="下一张">›</button>
+      <div class="bn-dots" aria-label="轮播指示">
+        <button type="button" class="on" aria-label="第 1 张"></button>
+        <button type="button" aria-label="第 2 张"></button>
+        <button type="button" aria-label="第 3 张"></button>
+      </div>
+    </section>
+
+    <!-- ---------- 服务承诺条 ---------- -->
+    <section class="service-bar" aria-label="服务承诺">
+      <div class="wrap service-in">
+        <div class="service-item"><b>正</b>正品保障</div>
+        <div class="service-item"><b>快</b>极速发货</div>
+        <div class="service-item"><b>退</b>7 天无理由</div>
+        <div class="service-item"><b>修</b>全国联保</div>
+      </div>
+    </section>
+
+    <!-- ---------- 今日推荐 ---------- -->
+    <section class="sec" aria-label="今日推荐">
+      <div class="sec-head">
+        <h2 class="sec-title">今日推荐<small>数码、家电、鞋服一站看齐</small></h2>
+        <a class="sec-more" href="category.html">查看全部商品 ›</a>
+      </div>
+      <div class="goods-grid" id="hotGrid"></div>
+    </section>
+
+    <!-- ---------- 楼层一：手机数码 ---------- -->
+    <section class="sec" aria-label="手机数码">
+      <div class="sec-head">
+        <h2 class="sec-title">手机数码<small>耳机、键盘这些每天都要用的</small></h2>
+        <a class="sec-more" href="category.html?cat=digital">更多数码 ›</a>
+      </div>
+      <div class="goods-grid" id="digitalGrid"></div>
+    </section>
+
+    <!-- ---------- 楼层二：服饰鞋包 ---------- -->
+    <section class="sec" aria-label="服饰鞋包">
+      <div class="sec-head">
+        <h2 class="sec-title">服饰鞋包<small>跑步、通勤都能穿</small></h2>
+        <a class="sec-more" href="category.html?cat=clothes">更多鞋款 ›</a>
+      </div>
+      <div class="goods-grid" id="clothGrid"></div>
+    </section>
+
+    <!-- ---------- 楼层三：厨房与零食 ---------- -->
+    <section class="sec" aria-label="厨房与零食">
+      <div class="sec-head">
+        <h2 class="sec-title">厨房与零食<small>周末在家，做点好吃的</small></h2>
+        <a class="sec-more" href="category.html?cat=home">更多电器 ›</a>
+      </div>
+      <div class="goods-grid" id="lifeGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- ========== 公共页脚 ========== -->
+  <footer class="footer">
+    <div class="wrap foot-cols">
+      <div class="foot-col">
+        <h4>购物指南</h4>
+        <a href="#">购物流程</a><a href="#">会员介绍</a><a href="#">常见问题</a>
+      </div>
+      <div class="foot-col">
+        <h4>配送方式</h4>
+        <a href="#">上门自提</a><a href="#">配送范围</a><a href="#">运费说明</a>
+      </div>
+      <div class="foot-col">
+        <h4>售后服务</h4>
+        <a href="#">退换货政策</a><a href="#">退款说明</a><a href="#">取消订单</a>
+      </div>
+      <div class="foot-col foot-service">
+        <h4>客户服务</h4>
+        <p class="tel">400-000-0000</p>
+        <p>周一至周日 9:00-22:00</p>
+        <p>在线客服 · 邮件反馈</p>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="wrap">优选商城 · 前端设计开发课程作业　｜　设计：吴渝　｜　仅供学习演示</div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+  <script src="index.js"></script>
+</body>
+</html>
